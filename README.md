@@ -14,7 +14,12 @@ git branch { New Branch Name }
 
 ### ブランチの切り替え
 ```
-git switch { Branch Name } or git checkout { Branch Name }
+git switch { Branch Name } / git checkout { Branch Name }
+```
+
+### ブランチを作成して切り替える
+```
+git checkout -b { Branch Name }
 ```
 
 ### 現在の作業ブランチの確認
@@ -25,6 +30,16 @@ git branch
 ### リモートリポジトリに作成したブランチを反映
 ```
 git push origin { New Branch Name }
+```
+
+### ローカルブランチを削除
+```
+git branch --delete { Branch Name } / git branch -d { Branch Name }
+```
+
+### リモートブランチを削除
+```
+git push --delete origin { Branch Name } / git push origin :{ Branch Name }
 ```
 
 ### ローカルリポジトリの状態を確認
