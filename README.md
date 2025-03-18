@@ -7,6 +7,21 @@
 git --version
 ```
 
+### ブランチの作成
+```
+
+```
+
+### ブランチの切り替え
+```
+git switch { Branch Name }
+```
+
+### 現在の作業ブランチの確認
+```
+
+```
+
 ### ローカルリポジトリの状態を確認
 ```
 git status
@@ -32,6 +47,21 @@ git restore --staged { FileName }
 git restore --staged .
 ```
 
+### コミットせずに変更を待避
+```
+git stash -u
+```
+
+#### 待避した作業の一覧
+```
+git stash list
+```
+
+#### 待避した作業を元に戻す
+```
+git stash apply stash@{{ Number }}
+```
+
 ### ステージングエリアに登録されているファイルをコミット
 ```
 git commit
@@ -50,4 +80,9 @@ git commit - "{ Commit Message }"
 ### 直前のコミットを取り消す
 ```
 git reset --soft 'HEAD^'
+```
+
+### プッシュする
+```
+git push
 ```
