@@ -9,17 +9,22 @@ git --version
 
 ### ブランチの作成
 ```
-
+git branch { New Branch Name }
 ```
 
 ### ブランチの切り替え
 ```
-git switch { Branch Name }
+git switch { Branch Name } or git checkout { Branch Name }
 ```
 
 ### 現在の作業ブランチの確認
 ```
+git branch
+```
 
+### リモートリポジトリに作成したブランチを反映
+```
+git push origin { New Branch Name }
 ```
 
 ### ローカルリポジトリの状態を確認
