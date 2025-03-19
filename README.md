@@ -153,12 +153,48 @@ git diff
 git diff --cached
 ```
 
+#### コミットの履歴を確認する
+
+```
+git log
+```
+
 ### ワークツリー関連
 
-### ファイルの変更を取り消す
+#### ファイルを削除する
+
+```
+git rm {File Name}
+```
+
+#### ディレクトリを削除する
+
+```
+git rm -r {Directory Name}
+```
+
+#### ファイルの変更を取り消す
 
 ```
 git restore {File Name}
+```
+
+#### ファイルの変更を待避
+
+```
+git stash -u
+```
+
+#### 待避した作業の一覧
+
+```
+git stash list
+```
+
+#### 待避した作業を元に戻す
+
+```
+git stash apply stash@{{Number}}
 ```
 
 ### ステージングエリア関連
@@ -185,26 +221,6 @@ git restore --staged {FileName}
 
 ```
 git restore --staged .
-```
-
-### 待避関連
-
-### コミットせずにファイルの変更を待避
-
-```
-git stash -u
-```
-
-#### 待避した作業の一覧
-
-```
-git stash list
-```
-
-#### 待避した作業を元に戻す
-
-```
-git stash apply stash@{{Number}}
 ```
 
 ### Git ディレクトリ関連
@@ -235,7 +251,7 @@ git reset --soft 'HEAD^'
 ```
 
 ステージングエリアに登録されている状態に戻す。
-HEAD は最新のコミットを指します。
+なお、HEAD は最新のコミットを指します。
 
 #### ローカルリポジトリからリモートリポジトリにコミットを反映
 
