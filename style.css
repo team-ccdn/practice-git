@@ -1,0 +1,21 @@
+.contents {
+    display: block;
+    padding: 20px;
+}
+
+.contents + .contents {
+    margin-top: 20px;
+}
+
+.contents h2 {
+    font-weight: bold;
+}
+
+.contents p {
+    margin-top: 10px;
+}
+
+.contents img {
+    width: 100%;
+    max-width: 100%;
+}
