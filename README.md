@@ -1,93 +1,347 @@
 # practice-git
 
-## よく使うコマンド
+## 最初に準備するもの
 
-### gitのバージョンを確認
+-   Git のインストール
+-   GitHub アカウントの作成
+-   GitHub Desktop のインストール
+-   Visual Studio Code のインストール
+
+### 参考 URL
+
+-   [【macOS 版】Homebrew を使って git をインストール](https://qiita.com/inakuuun/items/57fd4162d17d72e0c4fap)
+-   [GitHub でのアカウントの作成](https://docs.github.com/ja/get-started/start-your-journey/creating-an-account-on-github)
+-   [GitHub Desktop のインストール方法](https://docs.github.com/ja/desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop)
+-   [Download Visual Studio Code](https://code.visualstudio.com/download)
+
+### Git の設定
+
+誰がこの Git を使っているのかを明らかにする必要があります。
+
+#### Git のバージョンを確認
+
 ```
-git --version
+git -v
 ```
 
-### ブランチの作成
+#### ユーザー名の設定
+
 ```
-git branch { New Branch Name }
+git config --global user.name {Your Name}
 ```
 
-### ブランチの切り替え
+#### メールアドレスの設定
+
 ```
-git switch { Branch Name } or git checkout { Branch Name }
+git config --global user.email {Your Email}
 ```
 
-### 現在の作業ブランチの確認
+#### 設定内容の確認
+
+```
+git config --list
+```
+
+## 最初に準備するもの
+
+-   Git のインストール
+-   GitHub アカウントの作成
+-   GitHub Desktop のインストール
+-   Visual Studio Code のインストール
+
+### 参考 URL
+
+-   [【macOS 版】Homebrew を使って git をインストール](https://qiita.com/inakuuun/items/57fd4162d17d72e0c4fap)
+-   [GitHub でのアカウントの作成](https://docs.github.com/ja/get-started/start-your-journey/creating-an-account-on-github)
+-   [GitHub Desktop のインストール方法](https://docs.github.com/ja/desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop)
+-   [Download Visual Studio Code](https://code.visualstudio.com/download)
+
+### Git の設定
+
+誰がこの Git を使っているのかを明らかにする必要があります。
+
+#### ユーザー名の設定
+
+```
+git config --global user.name {Your Name}
+```
+
+#### メールアドレスの設定
+
+```
+git config --global user.email {Your Email}
+```
+
+#### 設定内容の確認
+
+```
+git config --list
+```
+
+## CUI と GUI どちらも利用した場合の実務でよく使うコマンド
+
+### 既存のリモートリポジトリをローカルリポジトリに複製
+
+```
+git clone {URL copied from github}
+```
+
+### ブランチ関連
+
+#### ローカルブランチの作成
+
+```
+git branch {New Branch Name}
+```
+
+#### ブランチの切り替え
+
+```
+git switch {Branch Name}
+```
+
+#### 現在の作業ブランチの確認
+
 ```
 git branch
 ```
 
-### リモートリポジトリに作成したブランチを反映
+先頭にアスタリスクがついているのが現在使用しているブランチです。
+
+#### リモートリポジトリに作成したローカルブランチを反映
+
 ```
-git push origin { New Branch Name }
+git push origin {New Branch Name}
 ```
 
+#### ローカルブランチを削除
+
+```
+git branch -d {Branch Name}
+```
+
+#### リモートブランチを削除
+
+```
+git push origin :{Branch Name}
+```
+
+### 状態の確認
+
 ### ローカルリポジトリの状態を確認
+
 ```
 git status
 ```
 
-### 特定のファイルをステージングエリアに登録
+| ファイルの状態   | 総称       |
+| :--------------- | :--------- |
+| 変更されていない | unmodified |
+| 変更済み         | modified   |
+| 追跡されていない | untracked  |
+| 追加済み         | staged     |
+
+#### ワークツリーとステージングエリアの差分を確認
+
 ```
-git add { FileName }
+git diff
 ```
 
-#### 変更したファイル全てをステージングエリアに登録
+#### ステージングエリアと Git ディレクトリの差分を確認
+
 ```
-git add .
+git diff --cached
 ```
 
-### ステージングエリアに登録されている特定のファイルを取り消し
+#### コミットの履歴を確認する
+
 ```
-git restore --staged { FileName }
+git log
 ```
 
-#### ステージングエリアに登録されている全てのファイルを取り消し
+### ワークツリー関連
+
+#### ファイルを削除する
+
 ```
-git restore --staged .
+git rm {File Name}
 ```
 
-### コミットせずに変更を待避
+#### ディレクトリを削除する
+
+```
+git rm -r {Directory Name}
+```
+
+#### ファイルの変更を取り消す
+
+```
+git restore {File Name}
+```
+
+#### ファイルの変更を待避
+
 ```
 git stash -u
 ```
 
 #### 待避した作業の一覧
+
 ```
 git stash list
 ```
 
 #### 待避した作業を元に戻す
+
 ```
-git stash apply stash@{{ Number }}
+git stash apply stash@{{Number}}
 ```
 
-### ステージングエリアに登録されているファイルをコミット
+### ステージングエリア関連
+
+#### 特定のファイルをステージングエリアに登録
+
+```
+git add {FileName}
+```
+
+#### 変更したファイル全てをステージングエリアに登録
+
+```
+git add .
+```
+
+#### ステージングエリアに登録されている特定のファイルを取り消し
+
+```
+git restore --staged {FileName}
+```
+
+#### ステージングエリアに登録されている全てのファイルを取り消し
+
+```
+git restore --staged .
+```
+
+### Git ディレクトリ関連
+
+#### ステージングエリアに登録されているファイルをコミット
+
 ```
 git commit
 ```
 
-#### Vimが立ち上がる場合
+#### Vim が立ち上がる場合
+
 ノーマルモードから`i`でインサートモードに入り、コミットメッセージ入力後`esc`でノーマルモードに戻り、`:wq`で保存して終了  
 コミットメッセージの入力をキャンセルしたい場合は、ノーマルモードで`:q!`で保存せずに終了
 
-### ステージングエリアに登録されているファイルをコミットメッセージ付きでコミット
-```
-git commit - "{ Commit Message }"
-```
-※Vimは立ち上がらない
+#### ステージングエリアに登録されているファイルをコミットメッセージ付きでコミット
 
-### 直前のコミットを取り消す
+```
+git commit - "{Commit Message}"
+```
+
+※Vim は立ち上がらない
+
+#### 直前のコミットを取り消す
+
 ```
 git reset --soft 'HEAD^'
 ```
 
-### プッシュする
+ステージングエリアに登録されている状態に戻す。
+なお、HEAD は最新のコミットを指します。
+
+#### ローカルリポジトリからリモートリポジトリにコミットを反映
+
 ```
 git push
 ```
+
+#### リモートリポジトリの情報をローカルリポジトリに取得する
+
+```
+git fetch
+```
+
+#### リモートリポジトリの情報をローカルリポジトリに取得し反映する
+
+```
+git pull
+```
+
+## マージを取り消したい
+
+FIXME
+
+## 用語集
+
+### Git
+
+ファイルの変更をバージョンとして記録し、記録した地点へいつでも戻れる仕組みを提供している「バージョン管理システム」と総称されるシステムのことです。  
+Git は「Git サーバー」と「Git クライアント」を使って操作します。  
+リモートリポジトリを動かしているソフトウェアを Git サーバーと呼び、Git クライアントはローカルリポジトリを作ったりコミットしたりなどの Git 操作を実行するために利用します。
+
+| 用語             | 説明                                                                             |
+| :--------------- | :------------------------------------------------------------------------------- |
+| サーバー         | サービスや機能を提供するコンピューターやソフトウェア                             |
+| クライアント     | サービスや機能の提供を受けるコンピューターやソフトウェア                         |
+| Git サーバー     | リモートリポジトリを動かしているソフトウェア                                     |
+| Git クライアント | ローカルリポジトリの作成やコミットするなど、Git 操作を実行するためのソフトウェア |
+
+### Git クライアント
+
+Git クライアントには「CUI クライアント」と「GUI クライアント」の 2 種類が存在します。  
+CUI とは「Character User Interface」の略で、キーボードからの文字の命令を入力して Git を操作します。（ターミナルやコマンドプロンプトでの操作）  
+GUI とは「Graphical user Interface」の略で、グラフィカルな画面上でマウスも利用して Git を操作します。（GitHub Desktop や SourceTree での操作）
+
+### GitHub
+
+Git のリポジトリを作成してソースコードをホスティングすることができる、世界中の開発者に親しまれている Web サービスです。  
+GitHub のサーバー内に最小限の手間でリモートリポジトリを作成して、ビジュアルで分かりやすく Git の機能を利用できます。
+
+### コミット
+
+Git では変更の履歴として、管理対象になっている全てのファイルのその時点の状態を保存していきます。  
+ユーザーが任意のタイミングで記録を保存する操作を「コミット」するといい、その記録自体も「コミット」と呼びます。
+
+### リポジトリ
+
+コミットを貯めていく場所のことを「リポジトリ」と呼びます。  
+リポジトリはリモートリポジトリとローカルリポジトリの 2 つに分類されます。  
+基本的に 1 つのプロジェクトにリモートリポジトリとローカルリポジトリがそれぞれ 1 つ以上存在し、共同作業する場合は各々がローカルリポジトリで作業を行い、それをリモートリポジトリに反映させ、別の作業者はその作業を自分のローカルリポジトリに取り込み、作業を続行します。
+
+### リモートリポジトリ
+
+ネットワーク上に存在するリポジトリのことです。  
+ローカルリポジトリのコミットを任意のタイミングで反映・取り込みを
+
+### ローカルリポジトリ
+
+手元で使っている PC 内に作成する自分専用のリポジトリのことです。  
+コミットを行い、ファイルの状態を保存するには、「ワークツリー」「ステージングエリア」「Git ディレクトリ」と呼ばれる 3 つの場所を使います。
+
+### ワークツリー
+
+Git が保持している複数コミットのうち、編集の開始地点。  
+ワーキングツリーや作業ディレクトリとも呼ばれます。  
+ファイルは、「最後にコミットした状態から手が加わっていない状態」「そこから変更が加わった状態」「コミットされたことのないファイルの状態」の 3 つの状態に分類できます。
+
+### ステージングエリア
+
+ワークツリーでファイル編集を行った後、コミットしたい内容を登録する場所のことです。  
+modified と untracked なファイルの状態は staged へと変わります。
+
+| ファイルの状態   | 総称       |
+| :--------------- | :--------- |
+| 変更されていない | unmodified |
+| 変更済み         | modified   |
+| 追跡されていない | untracked  |
+| 追加済み         | staged     |
+
+### Git ディレクトリ
+
+ステージングエリアに登録したファイルをコミットすると格納される場所のことです。  
+原則として、一度コミットされた内容は変更・削除されません。  
+仮にコミットを取り消す操作をしても、取り消す前後の状態はいずれも記録として残ります。
