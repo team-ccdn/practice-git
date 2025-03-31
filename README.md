@@ -185,7 +185,7 @@ git add .
 git restore --staged {FileName}
 ```
 
-#### ⭐️ ステージングエリアに登録されている全てのファイルを取り消し
+#### ステージングエリアに登録されている全てのファイルを取り消し
 
 ```
 git restore --staged .
