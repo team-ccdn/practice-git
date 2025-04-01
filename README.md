@@ -4,14 +4,12 @@
 
 -   Git のインストール
 -   GitHub アカウントの作成
--   GitHub Desktop のインストール
 -   Visual Studio Code のインストール
 
 ### 参考 URL
 
--   [【macOS 版】Homebrew を使って git をインストール](https://qiita.com/inakuuun/items/57fd4162d17d72e0c4fap)
+-   [【macOS 版】Homebrew を使って git をインストール](https://zenn.dev/inablog/articles/25f6ac101d0b45)
 -   [GitHub でのアカウントの作成](https://docs.github.com/ja/get-started/start-your-journey/creating-an-account-on-github)
--   [GitHub Desktop のインストール方法](https://docs.github.com/ja/desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop)
 -   [Download Visual Studio Code](https://code.visualstudio.com/download)
 
 ### Git の設定
@@ -179,13 +177,13 @@ git add {FileName}
 git add .
 ```
 
-#### ステージングエリアに登録されている特定のファイルを取り消し
+#### ステージングエリアに登録されている特定のファイルを取り消す
 
 ```
 git restore --staged {FileName}
 ```
 
-#### ステージングエリアに登録されている全てのファイルを取り消し
+#### ステージングエリアに登録されている全てのファイルを取り消す
 
 ```
 git restore --staged .
@@ -213,7 +211,28 @@ git commit - "{Commit Message}"
 
 ※Vim は立ち上がらない
 
-#### 直前のコミットメッセージを取り消したい
+#### 直前のコミットを取り消す ①
+
+```
+$ git reset --hard HEAD^
+```
+
+`reset`は文字通りコミットを指定してそこまでリセットを行います。
+commit,add,ファイルの変更を取り消せ、履歴も残りません。
+（ファイルを編集・追加前の状態に戻します）
+
+#### 直前のコミットを取り消す ②
+
+```
+git reset --soft HEAD^
+```
+
+`reset`は文字通りコミットを指定してそこまで「リセット」を行います。
+コミットのみを削除するので、ファイルの作成やステージングエリアに登録した記録は残ります。
+（ステージングエリアに登録されている状態に戻します）
+なお、HEAD は最新のコミットを指します。
+
+#### 直前のコミットを取り消す ③
 
 ```
 git revert HEAD
@@ -222,25 +241,6 @@ git revert HEAD
 `revert`は対象のコミットに対して「打ち消し」を行います。
 打ち消したこと自体はコミットログに残るので、「コミット xxx を打ち消したコミット」のように後から参照することもできます。
 このコマンドはコミットメッセージの編集時点まで状態を戻します。
-なお、HEAD は最新のコミットを指します。
-
-#### 直前のコミットを取り消す ①
-
-```
-$ git reset --hard HEAD^
-```
-
-#### 直前のコミットを取り消す ②
-
-```
-git reset --soft HEAD^
-```
-
-このコマンドは commit,add,ファイルの変更を取り消せ、履歴も残りません。
-
-`reset`は文字通りコミットを指定してそこまでリセットを行います。
-コミットのみを削除するので、ファイルの作成やステージングエリアに登録した記録は残ります。
-このコマンドはステージングエリアに登録されている状態に戻します。
 なお、HEAD は最新のコミットを指します。
 
 #### ⭐️ ローカルリポジトリからリモートリポジトリにコミットを反映
