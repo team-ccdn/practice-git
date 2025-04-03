@@ -219,7 +219,7 @@ git commit
 #### ⭐️ ステージングエリアに登録されているファイルをコミットメッセージ付きでコミット
 
 ```
-git commit -m "{Commit Message}"
+git commit - "{Commit Message}"
 ```
 
 ※Vim は立ち上がらない
