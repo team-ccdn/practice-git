@@ -1,5 +1,4 @@
 .contents {
-    display: block;
     padding: 20px;
 }
 
@@ -18,7 +17,4 @@
 .contents img {
     width: 100%;
     max-width: 100%;
-}
-
-.test {
 }
