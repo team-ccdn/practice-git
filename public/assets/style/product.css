@@ -1,0 +1,32 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul li {
+    list-style: none;
+}
+
+.contents {
+    padding: 20px;
+}
+
+.contents + .contents {
+    margin-top: 20px;
+}
+
+.contents h2 {
+    font-weight: bold;
+}
+
+.contents p {
+    margin-top: 10px;
+}
+
+.contents img {
+    width: 100%;
+    max-width: 100%;
+}
