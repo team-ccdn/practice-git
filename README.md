@@ -110,16 +110,10 @@ git branch -d {Branch Name}
 git push origin :{Branch Name}
 ```
 
-### ローカルブランチには残っているが、先に削除されたリモートブランチを確認する
+#### 既に削除されたリモートブランチをローカルブランチからも削除する
 
 ```
-git remote prune --dry-run origin
-```
-
-### 先に削除されたリモートブランチと同様にローカルブランチも削除する
-
-```
-git remote prune origin
+git fetch --prune
 ```
 
 ### 状態の確認
