@@ -1,19 +1,20 @@
 # practice-git
 
-## CCDN開発環境
+## CCDN 開発環境
+
 https://sample.ccdn.jp/practice-git/
 
 ## Git 利用にあたり最初に準備するもの
 
--   Git のインストール
--   GitHub アカウントの作成
--   Visual Studio Code のインストール
+- Git のインストール
+- GitHub アカウントの作成
+- Visual Studio Code のインストール
 
 ### 参考 URL
 
--   [【macOS 版】Homebrew を使って git をインストール](https://zenn.dev/inablog/articles/25f6ac101d0b45)
--   [GitHub でのアカウントの作成](https://docs.github.com/ja/get-started/start-your-journey/creating-an-account-on-github)
--   [Download Visual Studio Code](https://code.visualstudio.com/download)
+- [【macOS 版】Homebrew を使って git をインストール](https://zenn.dev/inablog/articles/25f6ac101d0b45)
+- [GitHub でのアカウントの作成](https://docs.github.com/ja/get-started/start-your-journey/creating-an-account-on-github)
+- [Download Visual Studio Code](https://code.visualstudio.com/download)
 
 ### Git の設定
 
@@ -92,6 +93,7 @@ git push origin {New Branch Name}
 ```
 
 #### ローカルブランチとリモート追跡ブランチを紐づける
+
 ```
 git branch -u origin/{New Branch Name}
 ```
@@ -106,6 +108,18 @@ git branch -d {Branch Name}
 
 ```
 git push origin :{Branch Name}
+```
+
+### ローカルブランチには残っているが、先に削除されたリモートブランチを確認する
+
+```
+git remote prune --dry-run origin
+```
+
+### 先に削除されたリモートブランチと同様にローカルブランチも削除する
+
+```
+git remote prune origin
 ```
 
 ### 状態の確認
