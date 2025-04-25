@@ -1,6 +1,10 @@
 .about {
-    color: #ffffff;
-    background-color: #000000;
+    color: #3b3b3b;
+    background-color: #d9ffd9;
+}
+
+.about ul li+li {
+    margin-top: 0.5em;
 }
 
 .about ul li a {

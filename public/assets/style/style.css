@@ -30,3 +30,22 @@ ul li {
     width: 100%;
     max-width: 100%;
 }
+
+.contents ul li + li  {
+    margin-top: 0.5em;
+}
+
+.contents .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.contents .grid li {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

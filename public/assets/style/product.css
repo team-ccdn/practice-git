@@ -1,32 +1,12 @@
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.product {
+    color: #212121;
+    background-color: #f7e2be;
 }
 
-ul li {
-    list-style: none;
+.product ul li+li {
+    margin-top: 0.5em;
 }
 
-.contents {
-    padding: 20px;
-}
-
-.contents + .contents {
-    margin-top: 20px;
-}
-
-.contents h2 {
-    font-weight: bold;
-}
-
-.contents p {
-    margin-top: 10px;
-}
-
-.contents img {
-    width: 100%;
-    max-width: 100%;
+.product ul li a {
+    color: #bb0038;
 }

@@ -4,6 +4,10 @@
 
 https://sample.ccdn.jp/practice-git/
 
+## CCDN git/github勉強資料
+
+[git/github勉強資料](https://docs.google.com/spreadsheets/d/1rMWdnSK-0lF61043I18a7i1esAhG8OnDUVXIP21wg5U/edit?usp=sharing)
+
 ## Git 利用にあたり最初に準備するもの
 
 - Git のインストール
